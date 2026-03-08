@@ -8,96 +8,98 @@
 <style>
 
 body{
-background:#fafafa;
-font-family:Arial, sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+  background:#fafafa;
+  font-family:Arial, sans-serif;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start; /* жоғарғы жағына орналастыру */
+  min-height:100vh;
+  padding:20px 0; /* аздаған бос орын үстіне-төменге */
 }
 
 .post{
-width:360px;
-background:white;
-border:1px solid #dbdbdb;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  width:360px;
+  max-height:90vh; /* экранның 90%-інен аспайды */
+  overflow:auto;   /* пост ішінде скролл болады */
+  background:white;
+  border:1px solid #dbdbdb;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .header{
-display:flex;
-align-items:center;
-padding:10px;
+  display:flex;
+  align-items:center;
+  padding:10px;
 }
 
 .avatar{
-width:35px;
-height:35px;
-border-radius:50%;
-background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-margin-right:10px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  margin-right:10px;
 }
 
 .username{
-font-weight:bold;
+  font-weight:bold;
 }
 
 .image img{
-width:100%;
-display:block;
+  width:100%;
+  display:block;
 }
 
 .actions{
-padding:10px;
-font-size:22px;
+  padding:10px;
+  font-size:22px;
 }
 
 .heart{
-cursor:pointer;
+  cursor:pointer;
 }
 
 .likes{
-font-weight:bold;
-padding:0 10px;
+  font-weight:bold;
+  padding:0 10px;
 }
 
 .caption{
-padding:8px 10px;
-font-size:14px;
+  padding:8px 10px;
+  font-size:14px;
 }
 
 .comments{
-padding:10px;
-border-top:1px solid #eee;
-max-height:120px;
-overflow:auto;
-font-size:14px;
+  padding:10px;
+  border-top:1px solid #eee;
+  max-height:120px;
+  overflow:auto;
+  font-size:14px;
 }
 
 .comment-input{
-display:flex;
-border-top:1px solid #ddd;
+  display:flex;
+  border-top:1px solid #ddd;
 }
 
 .comment-input input{
-flex:1;
-padding:10px;
-border:none;
-outline:none;
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
 }
 
 .comment-input button{
-background:#3897f0;
-color:white;
-border:none;
-padding:10px 15px;
-cursor:pointer;
+  background:#3897f0;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  cursor:pointer;
 }
 
 .comment{
-margin-bottom:5px;
+  margin-bottom:5px;
 }
 
 </style>
@@ -113,7 +115,7 @@ margin-bottom:5px;
 </div>
 
 <div class="image">
-<img src="8mart.jpg">
+<img src="8mart.jpg" alt="8 Наурыз суреті">
 </div>
 
 <div class="actions">
@@ -132,7 +134,7 @@ margin-bottom:5px;
 Еңбегіңіз жемісті болып, білім алушыларыңыздың құрметіне бөлене беріңіз.
 Деніңіз сау, отбасыңыз аман, өміріңіз бақытқа толы болсын!
 
-<br> Құрметті группаның арулары! 🌸  
+<br><br> Құрметті группаның арулары! 🌸  
 Сіздерді <b>8 Наурыз</b> – мерекесімен шын жүректен құттықтаймын! 💐
 Жүректеріңіз мейірімге толы болып, жүздеріңізден күлкі кетпесін.
 Әр күндеріңіз қуанышқа, табысқа және бақытқа толы болсын! 💐 
@@ -165,33 +167,33 @@ let likes=999999
 
 document.getElementById("heart").onclick=function(){
 
-if(!liked){
-likes++
-this.textContent="❤️"
-liked=true
-}else{
-likes--
-this.textContent="🤍"
-liked=false
-}
+  if(!liked){
+    likes++
+    this.textContent="❤️"
+    liked=true
+  }else{
+    likes--
+    this.textContent="🤍"
+    liked=false
+  }
 
-document.getElementById("likeCount").textContent=likes
+  document.getElementById("likeCount").textContent=likes
 
 }
 
 function addComment(){
 
-let text=document.getElementById("commentText").value
+  let text=document.getElementById("commentText").value
 
-if(text.trim()=="") return
+  if(text.trim()=="") return
 
-let div=document.createElement("div")
-div.className="comment"
-div.innerHTML="<b>user</b> "+text
+  let div=document.createElement("div")
+  div.className="comment"
+  div.innerHTML="<b>user</b> "+text
 
-document.getElementById("comments").appendChild(div)
+  document.getElementById("comments").appendChild(div)
 
-document.getElementById("commentText").value=""
+  document.getElementById("commentText").value=""
 
 }
 
@@ -200,7 +202,3 @@ document.getElementById("commentText").value=""
 </body>
 
 </html>
-
-
-
-
